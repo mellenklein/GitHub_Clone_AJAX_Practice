@@ -3,8 +3,76 @@
   <head>
     <meta charset="utf-8">
     <title>AJAX Homework</title>
+    <link rel="stylesheet" href="octicons/octicons.css">
+    <link rel="stylesheet" href="styles/main.css">
   </head>
   <body>
+    <header class="top">
+      <span class="mega-octicon octicon-mark-github"></span>
+      <input type="text" name="name" value="" placeholder="Search GitHub">
+      <nav class="navMain">
+        <a href="#">Pull requests</a>
+        <a href="#">Issues</a>
+        <a href="#">Gist</a>
+      </nav>
+      <nav class="navNotif">
+        <span class="octicon octicon-bell"></span>
+        <span class="octicon octicon-plus"></span>
+        <!-- <div class="dropdown-caret"></div> -->
+        <img id="avatar-small" src="" alt="avatar"/>
+      </nav>
+    </header>
+    <div class="wrapper">
+    <main>
+      <section class="sidebar">
+        <img id="avatar" src="" alt="user photo" />
+        <h1 id="name"></h1>
+        <p id="username"></p>
+      <div class="contact"
+        <span class="octicon octicon-location"></span><p id="location"></p>
+        <span class="octicon octicon-mail"></span><a id="email" href=""></a>
+        <span class="octicon octicon-link"></span><p id="blog"></p>
+        <span class="octicon octicon-clock"></span><p id="join">Joined on</p>
+      </div>
+      </section>
+      <header class="tabs">
+        <div class="tab1">
+          <span class="octicon octicon-diff-added"></span>
+          <p>Contributions</p>
+        </div>
+        <div class="tab2">
+          <span class="octicon octicon-repo"></span>
+          <p>Repositories</p>
+        </div>
+        <div class="tab3">
+          <span class="octicon octicon-rss"></span>
+          <p>Public activity</p>
+        </div>
+        <div class="editBtn">
+          <button class="octicon octicon-pencil">Edit profile</button>
+        </div>
+      </header>
+      <section class="search">
+        <div class="searchBtn"></div>
+          <input type="text" name="name" value="" placeholder="Find a repository...">
+          <button>Search</button>
+          <nav class="navSearch">
+            <a href="#">All</a>
+            <a href="#">Public</a>
+            <a href="#">Private</a>
+            <a href="#">Sources</a>
+            <a href="#">Forks</a>
+            <a href="#">Mirrors</a>
+          </nav>
+          <button class="octicon octicon-repo">New</button>
+      </section>
+      <section class="projects">
 
+      </section>
+    </main>
+  </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+    <script src="token.js"></script>
+    <script src="main.js"></script>
   </body>
 </html>

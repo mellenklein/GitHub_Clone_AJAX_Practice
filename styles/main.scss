@@ -1,0 +1,244 @@
+@import "../bower_components/bourbon/app/assets/stylesheets/bourbon";
+@import "variables";
+@import "../bower_components/neat/app/assets/stylesheets/neat";
+
+body {
+  font-family: 'Helvetica', sans-serif;
+  margin: 0;
+}
+header.top{
+  background: $header;
+  padding: 10px;
+  border-bottom: 1px solid $border-gray;
+  .mega-octicon {
+    font-size: 1.75em;
+    margin-left: 60px;
+  }
+  input {
+    padding: 3px 5px;
+    width: 360px;
+    height: 28px;
+    font-size: .8em;
+  }
+  .navMain {
+    display: inline-block;
+    a {
+      text-decoration: none;
+      color: $black;
+      font-weight: 800;
+      font-size: .8em;
+      padding: 0 5px;
+    }
+  }
+  .navNotif {
+    float: right;
+    margin-right: 60px;
+    span {
+      padding: 0 10px 10px;
+      font-size: 1em;
+    }
+    .dropdown-caret {
+      background: $black;
+      border-bottom-right: 5px solid $black;
+      border-top-right: 5px solid $black;
+      width: 5px;
+      height: 5px;
+    }
+    img {
+      width: 25px;
+      border-radius: 5px;
+      margin-left: 5px;
+    }
+  }
+}
+div.wrapper {
+  @include outer-container;
+}
+main {
+  @include outer-container(12 of 12);
+  @include omega;
+
+  section.sidebar {
+    @include span-columns(3 of 12);
+    @include omega;
+    // background: turquoise;
+    float: left;
+    #avatar {
+      width: 90%;
+      margin: 0;
+      display: block;
+      border-radius: 10px;
+    }
+    h1{
+      margin: 5px 0 0 0;
+    }
+    #username {
+      color: $gray;
+      font-size: 1.3em;
+      font-weight: 300;
+      margin: 0;
+      padding-bottom: 20px;
+      border-bottom: 1px solid $border-gray;
+    }
+    div.contact {
+      border-bottom: 1px solid $border-gray;
+    }
+    #location {
+      @include omega;
+      margin: 20px 0 5px 0;
+      font-size: .9em;
+      display: inline-block;
+      padding-left: 5px;
+    }
+    // .octicon {
+    //   float: left;
+    // }
+    #email {
+      margin: 5px 0;
+      text-decoration: none;
+      font-size: .9em;
+      color: $blue;
+    }
+    #blog {
+      font-size: .9em;
+      color: $blue;
+      margin: 5px 0;
+    }
+    #join {
+      font-size: .9em;
+      display: inline-block;
+      padding-left: 5px;
+      margin: 5px 0;
+      padding-bottom: 20px;
+    }
+    .octicon {
+      color: $lighter-gray;
+      content: "";
+      // display: block;
+      clear: both;
+    }
+    &::after{
+      content: "";
+      display: block;
+      clear: both;
+    }
+  }
+
+  header.tabs {
+    float: left;
+    display: inline-block;
+    margin-top: 20px;
+    border-bottom: 1px solid $border-gray;
+    div.tab2 {
+      border: 1px solid $border-gray;
+      border-radius: 3px;
+      padding: 10px 5px 0 5px;
+      border-bottom: none;
+      p,
+      .octicon {
+        color: $black;
+      }
+    }
+    div {
+      float: left;
+      display: inline-block;
+      margin: 10px 10px 0 10px;
+      padding-top: 10px;
+      p,
+      .octicon {
+        float:left;
+        margin-top: 0;
+        margin-left: 5px;
+        color: $gray;
+        font-size: .9em;
+      }
+    } div.editBtn {
+      float: right;
+      margin-left: 310px;
+      button {
+        color: $black;
+        font-weight: 700;
+        font-size: .8em;
+        background: $button;
+        border: 1px solid $button-border;
+        border-radius: 5px;
+        padding: 5px 10px;
+        .octicon {
+          margin-right: 3px;
+        }
+      }
+    }
+  }
+  section.search {
+    // padding-top: 10px;
+    input,
+    button {
+      float: left;
+      margin-top: 10px;
+    }
+    input {
+      width: 260px;
+      padding: 8px;
+    }
+    nav {
+      float: left;
+      margin-top: 10px;
+      a {
+        text-decoration: none;
+        color: $blue;
+      }
+    }
+    button.octicon {
+      color: white;
+      background: $green;
+      border: none;
+      border-radius: 5px;
+      float: right;
+    }
+    // &::after{
+    //   content: "";
+    //   display: block;
+    //   clear: both;
+    // }
+  }
+  section.projects {
+    @include span-columns(9 of 12);
+    @include omega;
+    // margin-left: 20px;
+    padding: 10px;
+    // background: pink;
+    float: left;
+
+    article {
+      margin: 30px 0;
+      padding-bottom: 30px;
+      border-bottom: 1px solid $border-gray;
+      header a{
+        text-decoration: none;
+        text-transform: capitalize;
+        color: $blue;
+        font-size: 1.3em;
+        font-weight: 800;
+      }
+      time {
+        padding-top: 15px;
+        color: $lighter-gray;
+        font-size: 0.75em;
+      }
+      div {
+        float: right;
+        color: $lighter-gray;
+        font-size: .75em;
+        font-weight: 800;
+        line-height: .5em;
+        position: relative;
+      }
+      div a.octicon {
+        color: $lighter-gray;
+        padding: 0 5px 0 10px;
+      }
+    }
+
+
+    }
+}
