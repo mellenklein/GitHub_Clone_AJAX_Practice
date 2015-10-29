@@ -53,10 +53,15 @@ header.top {
       display: block;
       content: ""; }
     header.top .navNotif div.dropdown {
+      opacity: 0;
+      z-index: -1;
       position: absolute;
-      z-index: 99;
       right: 122px;
-      top: 27px; }
+      top: 27px;
+      transition: 0.5s opacity, 3s z-index; }
+      header.top .navNotif div.dropdown.expanded {
+        opacity: 1;
+        z-index: 9999; }
       header.top .navNotif div.dropdown::before {
         position: absolute;
         display: inline-block;
@@ -78,6 +83,9 @@ header.top {
         padding: 5px 70px 5px 15px;
         text-decoration: none;
         color: #333333; }
+        header.top .navNotif div.dropdown a.menu-item:hover {
+          background: #4078C0;
+          color: white; }
 
 div.wrapper {
   max-width: 68em;
@@ -246,51 +254,53 @@ main {
         padding: 5px 10px; }
         main header.tabs div.editBtn button .octicon {
           margin-right: 3px; }
-  main section.search input,
-  main section.search button {
-    float: left;
-    margin-top: 10px;
-    padding: 10px; }
-  main section.search input {
-    width: 260px;
-    border: 1px solid #D5D5D5;
-    border-radius: 3px;
-    margin-right: 5px;
-    font-size: .75em; }
-  main section.search button {
-    border: 1px solid #D5D5D5;
-    border-radius: 3px;
-    background: #eee;
-    font-weight: 800;
-    font-size: .75em; }
-  main section.search nav {
-    float: left;
-    margin-top: 20px;
-    margin-left: 40px; }
-    main section.search nav a {
-      text-decoration: none;
-      color: #4078C0;
-      font-size: .9em;
-      padding: 0 2.5px; }
-      main section.search nav a:first-child {
-        color: #333333;
-        font-weight: bold; }
-      main section.search nav a:hover {
-        text-decoration: underline; }
-  main section.search button.octicon {
-    color: white;
-    background: #7ACB5D;
-    border: 1px solid;
-    border-radius: 5px;
-    float: right;
-    font-weight: 800;
-    font-size: .9em; }
-    main section.search button.octicon span {
-      padding-right: 3px; }
-  main section.search::after {
-    content: "";
-    display: block;
-    clear: both; }
+  main section.search {
+    width: 100%; }
+    main section.search input,
+    main section.search button {
+      float: left;
+      margin-top: 10px;
+      padding: 10px; }
+    main section.search input {
+      width: 260px;
+      border: 1px solid #D5D5D5;
+      border-radius: 3px;
+      margin-right: 5px;
+      font-size: .75em; }
+    main section.search button {
+      border: 1px solid #D5D5D5;
+      border-radius: 3px;
+      background: #eee;
+      font-weight: 800;
+      font-size: .75em; }
+    main section.search nav {
+      float: left;
+      margin-top: 20px;
+      margin-left: 10px; }
+      main section.search nav a {
+        text-decoration: none;
+        color: #4078C0;
+        font-size: .9em;
+        padding: 0 2.5px; }
+        main section.search nav a:first-child {
+          color: #333333;
+          font-weight: bold; }
+        main section.search nav a:hover {
+          text-decoration: underline; }
+    main section.search button.octicon {
+      color: white;
+      background: #7ACB5D;
+      border: 1px solid;
+      border-radius: 5px;
+      float: right;
+      font-weight: 800;
+      font-size: .9em; }
+      main section.search button.octicon span {
+        padding-right: 3px; }
+    main section.search::after {
+      content: "";
+      display: block;
+      clear: both; }
   main section.projects {
     width: 100%;
     margin-right: 0;

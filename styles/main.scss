@@ -59,10 +59,18 @@ header.top{
       content: "";
     }
     div.dropdown {
+      opacity: 0;
+      z-index: -1;
       position: absolute;
-      z-index: 99;
       right: 122px;
       top: 27px;
+      transition: .5s opacity, 3s z-index;
+
+      &.expanded {
+        opacity: 1;
+        z-index: 9999;
+
+      }
       &::before {
         position: absolute;
         display: inline-block;
@@ -87,6 +95,10 @@ header.top{
         padding: 5px 70px 5px 15px;
         text-decoration: none;
         color: $black;
+        &:hover {
+          background: $blue;
+          color: white;
+        }
       }
     }
   }
@@ -275,7 +287,7 @@ section.projectWrap {
     }
   }
   section.search {
-    // padding-top: 10px;
+    width: 100%;
     input,
     button {
       float: left;
@@ -299,7 +311,7 @@ section.projectWrap {
     nav {
       float: left;
       margin-top: 20px;
-      margin-left: 40px;
+      margin-left: 10px;
 
       a {
         text-decoration: none;

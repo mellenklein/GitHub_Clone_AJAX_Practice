@@ -14,6 +14,7 @@ var orgs = $('.orgs');
 var followers = document.getElementById('followers');
 var starred = document.getElementById('starred');
 var following = document.getElementById('following');
+var plus = $('#plus');
 
 // Create a function that iterates through each item on the Repos array
 // and inserts each project into the markup
@@ -72,5 +73,9 @@ $.getJSON('https://api.github.com/users/mellenklein').done(function(data) {
 });
 
 
+$('.octicon-plus').click(function(){
+  $('.dropdown').toggleClass('expanded')
+  console.log('log plus clicked');
+});
 
 getProjects();
