@@ -56,6 +56,15 @@ $.getJSON('https://api.github.com/users/mellenklein').done(function(data) {
   username.innerHTML += data.login;
   // html.innerHTML += data.html_url;
   var avatarSmall = $("#avatar-small").attr("src", data.avatar_url);
+
+  $(document).ready(function() {
+    var date = data.created_at;
+    // from = date.split(".");
+    // f = new Date(from[2], from[1] - 1, from[0]);
+    console.log(date);
 });
+});
+
+
 
 getProjects();

@@ -76,7 +76,7 @@ main {
       margin-right: 0; }
     main section.sidebar #avatar {
       width: 90%;
-      margin: 0;
+      margin: 30px 0 0;
       display: block;
       border-radius: 10px; }
     main section.sidebar h1 {
@@ -160,22 +160,40 @@ main {
   main section.search input,
   main section.search button {
     float: left;
-    margin-top: 10px; }
+    margin-top: 10px;
+    padding: 10px; }
   main section.search input {
     width: 260px;
-    padding: 8px; }
+    border: 1px solid #D5D5D5;
+    border-radius: 3px;
+    margin-right: 5px;
+    font-size: .75em; }
+  main section.search button {
+    border: 1px solid #D5D5D5;
+    border-radius: 3px;
+    background: #eee;
+    font-weight: 800;
+    font-size: .75em; }
   main section.search nav {
     float: left;
-    margin-top: 10px; }
+    margin-top: 20px;
+    margin-left: 90px; }
     main section.search nav a {
       text-decoration: none;
-      color: #4078C0; }
+      color: #4078C0;
+      font-size: 1em;
+      padding: 0 2.5px; }
   main section.search button.octicon {
     color: white;
     background: #7ACB5D;
-    border: none;
+    border: 1px solid;
     border-radius: 5px;
-    float: right; }
+    float: right;
+    margin-right: 30px;
+    font-weight: 800;
+    font-size: .9em; }
+    main section.search button.octicon span {
+      padding-right: 3px; }
   main section.projects {
     float: left;
     display: block;
@@ -190,6 +208,9 @@ main {
       margin: 30px 0;
       padding-bottom: 30px;
       border-bottom: 1px solid #E5E5E5; }
+      main section.projects article:first-child {
+        border-top: 1px solid #E5E5E5;
+        padding-top: 30px; }
       main section.projects article header a {
         text-decoration: none;
         text-transform: capitalize;

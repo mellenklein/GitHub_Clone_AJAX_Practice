@@ -65,7 +65,7 @@ main {
     float: left;
     #avatar {
       width: 90%;
-      margin: 0;
+      margin: 30px 0 0;
       display: block;
       border-radius: 10px;
     }
@@ -175,25 +175,46 @@ main {
     button {
       float: left;
       margin-top: 10px;
+      padding: 10px;
     }
     input {
       width: 260px;
-      padding: 8px;
+      border: 1px solid $button-border;
+      border-radius: 3px;
+      margin-right: 5px;
+      font-size: .75em;
+    }
+    button {
+      border: 1px solid $button-border;
+      border-radius: 3px;
+      background: $button;
+      font-weight: 800;
+      font-size: .75em;
     }
     nav {
       float: left;
-      margin-top: 10px;
+      margin-top: 20px;
+      margin-left: 90px;
+
       a {
         text-decoration: none;
         color: $blue;
+        font-size: 1em;
+        padding: 0 2.5px;
       }
     }
     button.octicon {
       color: white;
       background: $green;
-      border: none;
+      border: 1px solid;
       border-radius: 5px;
       float: right;
+      margin-right: 30px;
+      font-weight: 800;
+      font-size: .9em;
+      span {
+        padding-right: 3px;
+      }
     }
     // &::after{
     //   content: "";
@@ -213,6 +234,10 @@ main {
       margin: 30px 0;
       padding-bottom: 30px;
       border-bottom: 1px solid $border-gray;
+      &:first-child {
+        border-top: 1px solid $border-gray;
+        padding-top: 30px;
+      }
       header a{
         text-decoration: none;
         text-transform: capitalize;
