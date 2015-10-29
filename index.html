@@ -17,8 +17,15 @@
       </nav>
       <nav class="navNotif">
         <span class="octicon octicon-bell"></span>
-        <span class="octicon octicon-plus"><a href="#" class="octicon octicon-triangle-down"></a></span>
-        <!-- <div class="dropdown-caret"></div> -->
+        <span class="octicon octicon-plus">
+          <a href="#" class="octicon octicon-triangle-down"></a>
+          <div class="dropdown">
+            <ul class="menu">
+              <a class="menu-item" href="#">New repository</a>
+              <a class="menu-item" href="#">New organization</a>
+            </ul>
+          </div>
+        </span>
         <img id="avatar-small" src="" alt="avatar"/><a href="#" class="octicon octicon-triangle-down"></a>
       </nav>
     </header>
@@ -45,6 +52,16 @@
           <span class="octicon octicon-clock"></span>
           <p id="join">Joined on</p>
         </div>
+      </div>
+      <div class="stats">
+        <a href="#"><p id="followers"></p><span>Followers</span></a>
+        <a href="#"><p id="starred"></p><span>Starred</span></a>
+        <a href="#"><p id="following"></p><span>Following</span></a>
+      </div>
+      <div class="orgs">
+        <h3>Organizations</h3>
+        <a href="#"><img src="https://avatars2.githubusercontent.com/u/5890317?v=3&s=84" alt="Nashville Women Programmers"/></a>
+        <a href="#"><img src="https://avatars2.githubusercontent.com/u/12956562?v=3&s=84" alt="The Iron Yard Nashville" /></a>
       </div>
       </section>
       <section class="projectWrap">
@@ -85,6 +102,7 @@
       </section>
     </main>
   </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
     <script src="token.js"></script>
     <script src="main.js"></script>

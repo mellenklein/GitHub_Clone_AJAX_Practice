@@ -58,6 +58,37 @@ header.top{
       display: block;
       content: "";
     }
+    div.dropdown {
+      position: absolute;
+      z-index: 99;
+      right: 122px;
+      top: 27px;
+      &::before {
+        position: absolute;
+        display: inline-block;
+        content: "";
+        top: 15px;
+        left: 170px;
+        border: 8px solid transparent;
+        border-bottom-color: rgba(0,0,0,0.15);
+        // background-color: white;
+      }
+      ul.menu {
+        background-color: white;
+        margin-top: 30px;
+        padding: 5px 0;
+        padding-left: 0;
+        border: 1px solid $border-gray;
+        border-radius: 5px;
+      }
+      a.menu-item {
+        display: block;
+        font-size: .8em;
+        padding: 5px 70px 5px 15px;
+        text-decoration: none;
+        color: $black;
+      }
+    }
   }
 }
 div.wrapper {
@@ -146,13 +177,51 @@ main {
     .octicon {
       color: $lighter-gray;
       content: "";
-      // display: block;
       clear: both;
     }
     &::after{
       content: "";
       display: block;
       clear: both;
+    }
+    div.stats {
+      border-bottom: 1px solid $border-gray;
+      padding-bottom: 10px;
+      a {
+        @include span-columns(4 of 12);
+        text-decoration: none;
+        text-align: center;
+        p {
+          font-size: 1.75em;
+          font-weight: bold;
+          color: $blue;
+          display: block;
+          text-align: center;
+          margin: 5px 0 0;
+        }
+      span {
+          @include omega;
+          font-size: .75em;
+          color: $gray;
+          &:hover {
+            color: $blue;
+          }
+        }
+      }
+      &::after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+    }
+    div.orgs {
+      h3 {
+        color: $black;
+      }
+      img {
+        width: 42px;
+        border-radius: 5px;
+      }
     }
   }
 section.projectWrap {
@@ -162,6 +231,7 @@ section.projectWrap {
     float: left;
     display: inline-block;
     margin-top: 20px;
+    width: 100%;
     border-bottom: 1px solid $border-gray;
     div.tab2 {
       border: 1px solid $border-gray;
@@ -188,7 +258,7 @@ section.projectWrap {
       }
     } div.editBtn {
       float: right;
-      margin-left: 230px;
+      // margin-left: 230px;
       margin-right: 0;
       button {
         color: $black;

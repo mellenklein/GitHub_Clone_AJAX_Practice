@@ -10,6 +10,10 @@ var email = document.getElementById('email');
 var html = document.getElementById('html_url');
 var username = document.getElementById('username');
 var projects = $('.projects');
+var orgs = $('.orgs');
+var followers = document.getElementById('followers');
+var starred = document.getElementById('starred');
+var following = document.getElementById('following');
 
 // Create a function that iterates through each item on the Repos array
 // and inserts each project into the markup
@@ -24,11 +28,8 @@ var displayProjects = function(data){
     var article = $('<article class="project"></article>');
     var header = $('<header><a href='+ item.html_url +'>'+ item.name +'</a></header>');
 
-      var date = item.updated_at.toString();
-      var split = date.split("");
-      var concat = split.splice(0, 10).join("");
-      console.log(concat);
-      var time = $('<time class="time">Updated ' + concat + '</time>');
+      var date = moment(item.updated_at).fromNow();
+      var time = $('<time class="time">Updated ' + date + '</time>');
 
     var icons = $('<div>'+ item.language + '<a href="#" class="octicon octicon-star"></a>' + item.stargazers_count + '<a class="octicon octicon-git-branch" href"#"></a>' + item.forks_count + '</div>');
 
@@ -51,26 +52,23 @@ var getProjects = function(){
 };
 
 
+
+
 $.getJSON('https://api.github.com/users/mellenklein').done(function(data) {
   console.log(data);
   fullName.innerHTML = data.name;
   email.innerHTML = data.email;
   blog.innerHTML = data.blog;
   loc.innerHTML = data.location;
-  // join.innerHTML += " " + concat;
   var avatar = $("#avatar").attr("src", data.avatar_url );
   username.innerHTML += data.login;
-  // html.innerHTML += data.html_url;
   var avatarSmall = $("#avatar-small").attr("src", data.avatar_url);
+  var joinDate = new Date(data.created_at).toDateString();
+  join.innerHTML += " " + joinDate;
+  following.innerHTML = data.following;
+  starred.innerHTML = data.public_gists;
+  followers.innerHTML = data.followers;
 
-  $(document).ready(function() {
-    var date = data.created_at.toString();
-    var split = date.split("");
-    var concat = split.splice(0, 10).join("");
-
-    console.log(concat);
-    join.innerHTML += " " + concat;
-  });
 });
 
 

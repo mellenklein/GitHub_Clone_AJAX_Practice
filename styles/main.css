@@ -52,6 +52,32 @@ header.top {
       clear: both;
       display: block;
       content: ""; }
+    header.top .navNotif div.dropdown {
+      position: absolute;
+      z-index: 99;
+      right: 122px;
+      top: 27px; }
+      header.top .navNotif div.dropdown::before {
+        position: absolute;
+        display: inline-block;
+        content: "";
+        top: 15px;
+        left: 170px;
+        border: 8px solid transparent;
+        border-bottom-color: rgba(0, 0, 0, 0.15); }
+      header.top .navNotif div.dropdown ul.menu {
+        background-color: white;
+        margin-top: 30px;
+        padding: 5px 0;
+        padding-left: 0;
+        border: 1px solid #E5E5E5;
+        border-radius: 5px; }
+      header.top .navNotif div.dropdown a.menu-item {
+        display: block;
+        font-size: .8em;
+        padding: 5px 70px 5px 15px;
+        text-decoration: none;
+        color: #333333; }
 
 div.wrapper {
   max-width: 68em;
@@ -140,6 +166,40 @@ main {
       content: "";
       display: block;
       clear: both; }
+    main section.sidebar div.stats {
+      border-bottom: 1px solid #E5E5E5;
+      padding-bottom: 10px; }
+      main section.sidebar div.stats a {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 31.76157%;
+        text-decoration: none;
+        text-align: center; }
+        main section.sidebar div.stats a:last-child {
+          margin-right: 0; }
+        main section.sidebar div.stats a p {
+          font-size: 1.75em;
+          font-weight: bold;
+          color: #4078C0;
+          display: block;
+          text-align: center;
+          margin: 5px 0 0; }
+        main section.sidebar div.stats a span {
+          margin-right: 0;
+          font-size: .75em;
+          color: #676767; }
+          main section.sidebar div.stats a span:hover {
+            color: #4078C0; }
+      main section.sidebar div.stats::after {
+        content: "";
+        display: block;
+        clear: both; }
+    main section.sidebar div.orgs h3 {
+      color: #333333; }
+    main section.sidebar div.orgs img {
+      width: 42px;
+      border-radius: 5px; }
   main section.projectWrap {
     float: left;
     display: block;
@@ -151,6 +211,7 @@ main {
     float: left;
     display: inline-block;
     margin-top: 20px;
+    width: 100%;
     border-bottom: 1px solid #E5E5E5; }
     main header.tabs div.tab2 {
       border: 1px solid #E5E5E5;
@@ -174,7 +235,6 @@ main {
         font-size: .9em; }
     main header.tabs div.editBtn {
       float: right;
-      margin-left: 230px;
       margin-right: 0; }
       main header.tabs div.editBtn button {
         color: #333333;
