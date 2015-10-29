@@ -24,17 +24,11 @@ var displayProjects = function(data){
     var article = $('<article class="project"></article>');
     var header = $('<header><a href='+ item.html_url +'>'+ item.name +'</a></header>');
 
-
-    console.log(item.updated_at);
-
       var date = item.updated_at.toString();
       var split = date.split("");
       var concat = split.splice(0, 10).join("");
       console.log(concat);
       var time = $('<time class="time">Updated ' + concat + '</time>');
-  
-
-
 
     var icons = $('<div>'+ item.language + '<a href="#" class="octicon octicon-star"></a>' + item.stargazers_count + '<a class="octicon octicon-git-branch" href"#"></a>' + item.forks_count + '</div>');
 

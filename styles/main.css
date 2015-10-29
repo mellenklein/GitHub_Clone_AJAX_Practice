@@ -30,22 +30,28 @@ header.top {
       font-weight: 800;
       font-size: .8em;
       padding: 0 5px; }
+      header.top .navMain a:hover {
+        color: #4078C0; }
   header.top .navNotif {
     float: right;
     margin-right: 60px; }
     header.top .navNotif span {
       padding: 0 10px 10px;
       font-size: 1em; }
-    header.top .navNotif .dropdown-caret {
-      background: #333333;
-      border-bottom-right: 5px solid #333333;
-      border-top-right: 5px solid #333333;
-      width: 5px;
-      height: 5px; }
+    header.top .navNotif .octicon {
+      color: #333333;
+      padding-left: 3px; }
+      header.top .navNotif .octicon:hover {
+        color: #4078C0; }
     header.top .navNotif img {
       width: 25px;
       border-radius: 5px;
-      margin-left: 5px; }
+      margin-left: 5px;
+      margin-top: 5px; }
+    header.top .navNotif::after {
+      clear: both;
+      display: block;
+      content: ""; }
 
 div.wrapper {
   max-width: 68em;
@@ -111,11 +117,15 @@ main {
       text-decoration: none;
       font-size: .9em;
       color: #4078C0; }
+      main section.sidebar #email:hover {
+        text-decoration: underline; }
     main section.sidebar #blog {
       font-size: .9em;
       color: #4078C0;
       margin: 5px 0;
       text-decoration: none; }
+      main section.sidebar #blog:hover {
+        text-decoration: underline; }
     main section.sidebar #join {
       font-size: .9em;
       display: inline-block;
@@ -196,12 +206,17 @@ main {
   main section.search nav {
     float: left;
     margin-top: 20px;
-    margin-left: 10px; }
+    margin-left: 40px; }
     main section.search nav a {
       text-decoration: none;
       color: #4078C0;
       font-size: .9em;
       padding: 0 2.5px; }
+      main section.search nav a:first-child {
+        color: #333333;
+        font-weight: bold; }
+      main section.search nav a:hover {
+        text-decoration: underline; }
   main section.search button.octicon {
     color: white;
     background: #7ACB5D;
@@ -234,6 +249,8 @@ main {
         color: #4078C0;
         font-size: 1.3em;
         font-weight: 800; }
+        main section.projects article header a:hover {
+          text-decoration: underline; }
       main section.projects article time {
         padding-top: 15px;
         color: #888888;
@@ -248,3 +265,5 @@ main {
       main section.projects article div a.octicon {
         color: #888888;
         padding: 0 5px 0 10px; }
+        main section.projects article div a.octicon:hover {
+          color: #4078C0; }
