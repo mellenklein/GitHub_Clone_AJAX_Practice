@@ -50,7 +50,8 @@ header.top {
 div.wrapper {
   max-width: 68em;
   margin-left: auto;
-  margin-right: auto; }
+  margin-right: auto;
+  margin: 0 150px; }
   div.wrapper::after {
     clear: both;
     content: "";
@@ -71,11 +72,12 @@ main {
     margin-right: 2.35765%;
     width: 23.23176%;
     margin-right: 0;
+    margin-right: 10px;
     float: left; }
     main section.sidebar:last-child {
       margin-right: 0; }
     main section.sidebar #avatar {
-      width: 90%;
+      width: 100%;
       margin: 30px 0 0;
       display: block;
       border-radius: 10px; }
@@ -90,6 +92,14 @@ main {
       border-bottom: 1px solid #E5E5E5; }
     main section.sidebar div.contact {
       border-bottom: 1px solid #E5E5E5; }
+      main section.sidebar div.contact .contact3 {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis; }
+      main section.sidebar div.contact .contact2,
+      main section.sidebar div.contact .contact3,
+      main section.sidebar div.contact .contact4 {
+        padding-top: 5px; }
     main section.sidebar #location {
       margin-right: 0;
       margin: 20px 0 5px 0;
@@ -104,7 +114,8 @@ main {
     main section.sidebar #blog {
       font-size: .9em;
       color: #4078C0;
-      margin: 5px 0; }
+      margin: 5px 0;
+      text-decoration: none; }
     main section.sidebar #join {
       font-size: .9em;
       display: inline-block;
@@ -119,6 +130,13 @@ main {
       content: "";
       display: block;
       clear: both; }
+  main section.projectWrap {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 74.41059%; }
+    main section.projectWrap:last-child {
+      margin-right: 0; }
   main header.tabs {
     float: left;
     display: inline-block;
@@ -146,7 +164,8 @@ main {
         font-size: .9em; }
     main header.tabs div.editBtn {
       float: right;
-      margin-left: 310px; }
+      margin-left: 230px;
+      margin-right: 0; }
       main header.tabs div.editBtn button {
         color: #333333;
         font-weight: 700;
@@ -177,11 +196,11 @@ main {
   main section.search nav {
     float: left;
     margin-top: 20px;
-    margin-left: 90px; }
+    margin-left: 10px; }
     main section.search nav a {
       text-decoration: none;
       color: #4078C0;
-      font-size: 1em;
+      font-size: .9em;
       padding: 0 2.5px; }
   main section.search button.octicon {
     color: white;
@@ -189,21 +208,19 @@ main {
     border: 1px solid;
     border-radius: 5px;
     float: right;
-    margin-right: 30px;
     font-weight: 800;
     font-size: .9em; }
     main section.search button.octicon span {
       padding-right: 3px; }
-  main section.projects {
-    float: left;
+  main section.search::after {
+    content: "";
     display: block;
-    margin-right: 2.35765%;
-    width: 74.41059%;
+    clear: both; }
+  main section.projects {
+    width: 100%;
     margin-right: 0;
     padding: 10px;
     float: left; }
-    main section.projects:last-child {
-      margin-right: 0; }
     main section.projects article {
       margin: 30px 0;
       padding-bottom: 30px;

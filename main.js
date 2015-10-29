@@ -23,7 +23,19 @@ var displayProjects = function(data){
     console.log(item);
     var article = $('<article class="project"></article>');
     var header = $('<header><a href='+ item.html_url +'>'+ item.name +'</a></header>');
-    var time = $('<time>Updated '+ item.updated_at +'</time>');
+
+
+    console.log(item.updated_at);
+
+      var date = item.updated_at.toString();
+      var split = date.split("");
+      var concat = split.splice(0, 10).join("");
+      console.log(concat);
+      var time = $('<time class="time">Updated ' + concat + '</time>');
+  
+
+
+
     var icons = $('<div>'+ item.language + '<a href="#" class="octicon octicon-star"></a>' + item.stargazers_count + '<a class="octicon octicon-git-branch" href"#"></a>' + item.forks_count + '</div>');
 
     article.append(header); //print the header and timestamp inside article
@@ -51,18 +63,20 @@ $.getJSON('https://api.github.com/users/mellenklein').done(function(data) {
   email.innerHTML = data.email;
   blog.innerHTML = data.blog;
   loc.innerHTML = data.location;
-  join.innerHTML += " " + data.created_at;
+  // join.innerHTML += " " + concat;
   var avatar = $("#avatar").attr("src", data.avatar_url );
   username.innerHTML += data.login;
   // html.innerHTML += data.html_url;
   var avatarSmall = $("#avatar-small").attr("src", data.avatar_url);
 
   $(document).ready(function() {
-    var date = data.created_at;
-    // from = date.split(".");
-    // f = new Date(from[2], from[1] - 1, from[0]);
-    console.log(date);
-});
+    var date = data.created_at.toString();
+    var split = date.split("");
+    var concat = split.splice(0, 10).join("");
+
+    console.log(concat);
+    join.innerHTML += " " + concat;
+  });
 });
 
 
