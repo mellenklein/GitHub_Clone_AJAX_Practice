@@ -11,22 +11,31 @@
       <span class="mega-octicon octicon-mark-github"></span>
       <input type="text" name="name" value="" placeholder="Search GitHub">
       <nav class="navMain">
-        <a href="#">Pull requests</a>
-        <a href="#">Issues</a>
-        <a href="#">Gist</a>
+        <a href="https://github.com/pulls">Pull requests</a>
+        <a href="https://github.com/issues">Issues</a>
+        <a href="https://gist.github.com/">Gist</a>
       </nav>
       <nav class="navNotif">
-        <span class="octicon octicon-bell"><a href="https://github.com/notifications"></a></span>
+        <a class="octicon octicon-bell" href="https://github.com/notifications"></a>
         <span class="octicon octicon-plus" id="plus">
           <a href="#" class="octicon octicon-triangle-down"></a>
-          <div class="dropdown">
+          <div class="dropdown" id="new">
             <ul class="menu">
               <a class="menu-item" href="https://github.com/new">New repository</a>
               <a class="menu-item" href="https://github.com/organizations/new">New organization</a>
             </ul>
           </div>
         </span>
+        <!-- <div id="avatar-small"> -->
         <img id="avatar-small" src="" alt="avatar"/><a href="#" class="octicon octicon-triangle-down"></a>
+        <!-- </div> -->
+        <div id="profile" class="dropdown profile">
+          <ul class="menu">
+            <a class="menu-item" href="https://github.com/new">Your profile</a>
+            <a class="menu-item" href="https://github.com/organizations/new">Your stars</a>
+            <a class="menu-item" href="https://github.com/organizations/new">Explore</a>
+          </ul>
+        </div>
       </nav>
     </header>
     <div class="wrapper">

@@ -40,6 +40,11 @@ header.top{
       padding: 0 10px 10px;
       font-size: 1em;
     }
+    .octicon-bell a {
+      content: "";
+      clear: both;
+      display: block;
+    }
     .octicon {
       color: $black;
       padding-left: 3px;
@@ -58,6 +63,47 @@ header.top{
       display: block;
       content: "";
     }
+    #profile {
+      opacity: 0;
+      z-index: -1;
+      position: absolute;
+      right: 70px;
+      top: 27px;
+      transition: .5s opacity, 3s z-index;
+      &.expanded {
+        opacity: 1;
+        z-index: 9999;
+      }
+      &::before {
+        position: absolute;
+        display: inline-block;
+        content: "";
+        top: 15px;
+        left: 120px;
+        border: 8px solid transparent;
+        border-bottom-color: rgba(0,0,0,0.15);
+        // background-color: white;
+      }
+      ul.menu {
+        background-color: white;
+        margin-top: 30px;
+        padding: 5px 0;
+        padding-left: 0;
+        border: 1px solid $border-gray;
+        border-radius: 5px;
+      }
+      a.menu-item {
+        display: block;
+        font-size: .8em;
+        padding: 5px 70px 5px 15px;
+        text-decoration: none;
+        color: $black;
+        &:hover {
+          background: $blue;
+          color: white;
+        }
+    }
+  }
     div.dropdown {
       opacity: 0;
       z-index: -1;

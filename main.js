@@ -74,8 +74,13 @@ $.getJSON('https://api.github.com/users/mellenklein').done(function(data) {
 
 
 $('.octicon-plus').click(function(){
-  $('.dropdown').toggleClass('expanded')
+  $('.dropdown#new').toggleClass('expanded')
   console.log('log plus clicked');
+});
+
+$('#avatar-small').click(function(){
+  $('.dropdown#profile').toggleClass('expanded')
+  console.log('img menu clicked');
 });
 
 getProjects();
