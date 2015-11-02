@@ -4,10 +4,13 @@ console.log('get requests');
 
 var projects = $('.projects');
 var sidebar = $('.sidebar');
+var header = $('.top');
 var url = 'https://api.github.com/users/mellenklein/repos';
 var url2 = 'https://api.github.com/users/mellenklein';
 var plus = $('#plus');
 
+
+//////////// Pulling from Repo Page: ////////
 
 function displayProjects(data){
   var projectItem = $('#projectItem');
@@ -34,6 +37,7 @@ getProjects();
 
 //////////// Pulling from Profile Page: ////////
 
+////// SIDEBAR DATA //////
 function displaySidebar(data){
   var sidebarItem = $('#sidebarItem');
   var sidebarTemplate = sidebarItem.html();
@@ -41,16 +45,26 @@ function displaySidebar(data){
   data.created_at = new Date(data.created_at).toDateString();
   sidebar.append(compiledSidebarTemplate(data));
 }
-
 function getSidebar(){
   $.ajax(url2).done(displaySidebar);
 }
-
 getSidebar();
+
+/////// HEADER DATA /////////
+function displayHeader(data){
+  var headerItem = $('#headerItem');
+  var headerTemplate = headerItem.html();
+  var compiledHeaderTemplate = _.template(headerTemplate);
+  header.append(compiledHeaderTemplate(data));
+}
+function getHeader(){
+  $.ajax(url2).done(displayHeader);
+}
+getHeader();
 
 
 //////////// Dropdown menus //////////////
-$('.octicon-plus').click(function(){
+$('i').click(function(){
   $('.dropdown#new').toggleClass('expanded')
   console.log('log plus clicked');
 });

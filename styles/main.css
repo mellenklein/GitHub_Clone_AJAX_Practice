@@ -47,6 +47,11 @@ header.top {
       padding-left: 3px; }
       header.top .navNotif .octicon:hover {
         color: #4078C0; }
+    header.top .navNotif .plus-container:hover {
+      color: #4078C0; }
+    header.top .navNotif .plus-container::after {
+      content: "";
+      clear: both; }
     header.top .navNotif img {
       width: 25px;
       border-radius: 5px;
