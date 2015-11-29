@@ -52,6 +52,16 @@ header.top{
         color: $blue;
       }
     }
+    .plus-container {
+      &:hover {
+        color: $blue;
+      }
+      &::after {
+        content: "";
+        // display: block;
+        clear: both;
+      }
+    }
     img {
       width: 25px;
       border-radius: 5px;

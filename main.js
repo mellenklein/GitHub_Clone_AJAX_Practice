@@ -1,79 +1,70 @@
 console.log('get requests');
 
 // Set variables to select html elements:
-var body = $('body');
-var fullName = document.getElementById('name');
-var blog = document.getElementById('blog');
-var join = document.getElementById('join');
-var loc = document.getElementById('location');
-var email = document.getElementById('email');
-var html = document.getElementById('html_url');
-var username = document.getElementById('username');
+
 var projects = $('.projects');
-var orgs = $('.orgs');
-var followers = document.getElementById('followers');
-var starred = document.getElementById('starred');
-var following = document.getElementById('following');
+var sidebar = $('.sidebar');
+var header = $('.top');
+var url = 'https://api.github.com/users/mellenklein/repos';
+var url2 = 'https://api.github.com/users/mellenklein';
 var plus = $('#plus');
 
-// Create a function that iterates through each item on the Repos array
-// and inserts each project into the markup
-var displayProjects = function(data){
-  projects.html(''); //reset the html every time it refreshes
 
-//For each item in the array, create a section called article.project
-// and within it, create a header that contains the title and link,
-// as well as the time stamp, for the project.
-  data.forEach(function(item){
-    console.log(item);
-    var article = $('<article class="project"></article>');
-    var header = $('<header><a href='+ item.html_url +'>'+ item.name +'</a></header>');
+//////////// Pulling from Repo Page: ////////
 
-      var date = moment(item.updated_at).fromNow();
-      var time = $('<time class="time">Updated ' + date + '</time>');
-
-    var icons = $('<div>'+ item.language + '<a href="#" class="octicon octicon-star"></a>' + item.stargazers_count + '<a class="octicon octicon-git-branch" href"#"></a>' + item.forks_count + '</div>');
-
-    article.append(header); //print the header and timestamp inside article
-    article.append(time);
-    article.append(icons);
-
-    projects.append(article); //print the articles to the projects section
+function displayProjects(data){
+  var projectItem = $('#projectItem');
+  //set up a template in the html:
+  var projectTemplate = projectItem.html(); //selecting the innerHTML
+  var compiledProjectTemplate = _.template(projectTemplate);
+  //change the output of updated_at to print in 'days ago' format:
+  data.updated_at = moment(data.updated_at).fromNow();
+  //append the new compiled template to the inside of the real html section
+  projects.append(compiledProjectTemplate(data));
+}
+ //set up a function that iterates thru each project object and prints it to the html markup, one after another:
+function getProjects(){
+  $.ajax(url).done(function(data){
+    data.forEach(displayProjects);
   });
-};
-
-// Create a function that gets the necessary data from the repo API:
-var getProjects = function(){
-  var handleSuccess = function(data){
-    displayProjects(data);
-  }
-// After the data is gathered, run the function that prints new
-// project elements to the markup:
-  $.get('https://api.github.com/users/mellenklein/repos', null, handleSuccess);
-};
+}
+//call the function so it actually starts:
+getProjects();
 
 
 
 
-$.getJSON('https://api.github.com/users/mellenklein').done(function(data) {
-  console.log(data);
-  fullName.innerHTML = data.name;
-  email.innerHTML = data.email;
-  blog.innerHTML = data.blog;
-  loc.innerHTML = data.location;
-  var avatar = $("#avatar").attr("src", data.avatar_url );
-  username.innerHTML += data.login;
-  var avatarSmall = $("#avatar-small").attr("src", data.avatar_url);
-  var joinDate = new Date(data.created_at).toDateString();
-  join.innerHTML += " " + joinDate;
-  following.innerHTML = data.following;
-  starred.innerHTML = data.public_gists;
-  followers.innerHTML = data.followers;
 
-});
+//////////// Pulling from Profile Page: ////////
+
+////// SIDEBAR DATA //////
+function displaySidebar(data){
+  var sidebarItem = $('#sidebarItem');
+  var sidebarTemplate = sidebarItem.html();
+  var compiledSidebarTemplate = _.template(sidebarTemplate);
+  data.created_at = new Date(data.created_at).toDateString();
+  sidebar.append(compiledSidebarTemplate(data));
+}
+function getSidebar(){
+  $.ajax(url2).done(displaySidebar);
+}
+getSidebar();
+
+/////// HEADER DATA /////////
+function displayHeader(data){
+  var headerItem = $('#headerItem');
+  var headerTemplate = headerItem.html();
+  var compiledHeaderTemplate = _.template(headerTemplate);
+  header.append(compiledHeaderTemplate(data));
+}
+function getHeader(){
+  $.ajax(url2).done(displayHeader);
+}
+getHeader();
 
 
-$('.octicon-plus').click(function(){
+//////////// Dropdown menus //////////////
+$('i').click(function(){
   $('.dropdown#new').toggleClass('expanded')
   console.log('log plus clicked');
 });
@@ -82,5 +73,3 @@ $('#avatar-small').click(function(){
   $('.dropdown#profile').toggleClass('expanded')
   console.log('img menu clicked');
 });
-
-getProjects();

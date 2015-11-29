@@ -3,76 +3,19 @@
   <head>
     <meta charset="utf-8">
     <title>AJAX Homework</title>
+    <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="octicons/octicons.css">
     <link rel="stylesheet" href="styles/main.css">
   </head>
   <body>
-    <header class="top">
-      <span class="mega-octicon octicon-mark-github"></span>
-      <input type="text" name="name" value="" placeholder="Search GitHub">
-      <nav class="navMain">
-        <a href="https://github.com/pulls">Pull requests</a>
-        <a href="https://github.com/issues">Issues</a>
-        <a href="https://gist.github.com/">Gist</a>
-      </nav>
-      <nav class="navNotif">
-        <a class="octicon octicon-bell" href="https://github.com/notifications"></a>
-        <span class="octicon octicon-plus" id="plus">
-          <a href="#" class="octicon octicon-triangle-down"></a>
-          <div class="dropdown" id="new">
-            <ul class="menu">
-              <a class="menu-item" href="https://github.com/new">New repository</a>
-              <a class="menu-item" href="https://github.com/organizations/new">New organization</a>
-            </ul>
-          </div>
-        </span>
-        <!-- <div id="avatar-small"> -->
-        <img id="avatar-small" src="" alt="avatar"/><a href="#" class="octicon octicon-triangle-down"></a>
-        <!-- </div> -->
-        <div id="profile" class="dropdown profile">
-          <ul class="menu">
-            <a class="menu-item" href="https://github.com/new">Your profile</a>
-            <a class="menu-item" href="https://github.com/organizations/new">Your stars</a>
-            <a class="menu-item" href="https://github.com/organizations/new">Explore</a>
-          </ul>
-        </div>
-      </nav>
-    </header>
+
+    <header class="top"></header>
+
     <div class="wrapper">
-    <main>
-      <section class="sidebar">
-        <img id="avatar" src="" alt="user photo" />
-        <h1 id="name"></h1>
-        <p id="username"></p>
-      <div class="contact">
-        <div class="contact1">
-          <span class="octicon octicon-location"></span>
-          <p id="location"></p>
-        </div>
-        <div class="contact2">
-          <span class="octicon octicon-mail"></span>
-          <a id="email" href=""></a>
-        </div>
-        <div class="contact3">
-          <span class="octicon octicon-link"></span>
-          <a id="blog" href=""></a>
-        </div>
-        <div class="contact4">
-          <span class="octicon octicon-clock"></span>
-          <p id="join">Joined on</p>
-        </div>
-      </div>
-      <div class="stats">
-        <a href="#"><p id="followers"></p><span>Followers</span></a>
-        <a href="#"><p id="starred"></p><span>Starred</span></a>
-        <a href="#"><p id="following"></p><span>Following</span></a>
-      </div>
-      <div class="orgs">
-        <h3>Organizations</h3>
-        <a href="#"><img src="https://avatars2.githubusercontent.com/u/5890317?v=3&s=84" alt="Nashville Women Programmers"/></a>
-        <a href="#"><img src="https://avatars2.githubusercontent.com/u/12956562?v=3&s=84" alt="The Iron Yard Nashville" /></a>
-      </div>
-      </section>
+     <main>
+
+      <section class="sidebar"></section>
+
       <section class="projectWrap">
       <header class="tabs">
         <div class="tab1">
@@ -92,7 +35,6 @@
         </div>
       </header>
       <section class="search">
-        <!-- <div class="searchBtn"></div> -->
           <input type="text" name="name" value="" placeholder="Find a repository...">
           <button>Search</button>
           <nav class="navSearch">
@@ -105,14 +47,103 @@
           </nav>
           <button class="octicon octicon-repo">New</button>
       </section>
-      <section class="projects">
 
-      </section>
-      </section>
-    </main>
-  </div>
+      <section class="projects"></section>
+
+    </section>
+  </main>
+</div>
+
+
+<!-- script tags for templates go outside the main content tags -->
+    <script type="text/template" id="projectItem">
+        <article class="project">
+          <header>
+            <a href="<%= html_url %>"> <%= name %> </a>
+          </header>
+          <time class="time">Updated <%= updated_at %></time>
+          <div> <%= language %>
+            <a href="#" class="octicon octicon-star"></a> <%= stargazers_count %>
+            <a href="#" class="octicon octicon-git-branch"></a> <%= forks_count %>
+          </div>
+        </article>
+    </script>
+
+
+    <script type="text/template" id="sidebarItem">
+      <img id="avatar" src="<%= avatar_url %>" alt="user photo"/>
+      <h1 id="name"><%= name %></h1>
+      <p id="username"><%= login %></p>
+      <div class="contact">
+        <div class="contact1">
+          <span class="octicon octicon-location"></span>
+          <p id="location"><%= location %></p>
+        </div>
+        <div class="contact2">
+          <span class="octicon octicon-mail"></span>
+          <a id="email" href="mailto:<%= email %>"><%= email %></a>
+        </div>
+        <div class="contact3">
+          <span class="octicon octicon-link"></span>
+          <a id="blog" href="<%= blog %>"><%= blog %></a>
+        </div>
+        <div class="contact4">
+          <span class="octicon octicon-clock"></span>
+          <p id="join">Joined on <%= created_at %></p>
+        </div>
+      </div>
+      <div class="stats">
+        <a href="#"><p id="followers"><%= followers %></p><span>Followers</span></a>
+        <a href="#"><p id="starred"><%= public_gists %></p><span>Starred</span></a>
+        <a href="#"><p id="following"><%= following %></p><span>Following</span></a>
+      </div>
+      <div class="orgs">
+        <h3>Organizations</h3>
+        <a href="#"><img src="https://avatars2.githubusercontent.com/u/5890317?v=3&s=84" alt="Nashville Women Programmers"/></a>
+        <a href="#"><img src="https://avatars2.githubusercontent.com/u/12956562?v=3&s=84" alt="The Iron Yard Nashville" /></a>
+      </div>
+    </script>
+
+    <script type="text/template" id="headerItem">
+      <span class="mega-octicon octicon-mark-github"></span>
+      <input type="text" name="name" value="" placeholder="Search GitHub">
+      <nav class="navMain">
+        <a href="https://github.com/pulls">Pull requests</a>
+        <a href="https://github.com/issues">Issues</a>
+        <a href="https://gist.github.com/">Gist</a>
+      </nav>
+      <nav class="navNotif">
+        <a class="octicon octicon-bell" href="https://github.com/notifications"></a>
+        <a class="plus-container">
+          <i class="octicon octicon-plus" id="plus"></i>
+          <i class="octicon octicon-triangle-down"></i>
+        </a>
+          <div class="dropdown" id="new">
+            <ul class="menu">
+              <a class="menu-item" href="https://github.com/new">New repository</a>
+              <a class="menu-item" href="https://github.com/organizations/new">New organization</a>
+            </ul>
+          </div>
+
+
+        <img id="avatar-small" src="<%= avatar_url %>" alt="avatar"/><a href="#" class="octicon octicon-triangle-down"></a>
+        <div class="dropdown-profile" id="profile">
+          <ul class="menu">
+            <a class="menu-item" href="https://github.com/new">Your profile</a>
+            <a class="menu-item" href="https://github.com/organizations/new">Your stars</a>
+            <a class="menu-item" href="https://github.com/organizations/new">Explore</a>
+          </ul>
+        </div>
+      </nav>
+    </script>
+
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
     <script src="token.js"></script>
     <script src="main.js"></script>
   </body>
